@@ -1,0 +1,10 @@
+slack = {
+    'hook_url': "XXX"
+}
+
+mysql = {
+    'host': 'XXX',
+    'database': 'XXX',
+    'user': 'XXX',
+    'password': 'XXX',
+}
