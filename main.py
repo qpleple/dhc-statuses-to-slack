@@ -38,6 +38,7 @@ def handle_new_row(row):
       'username': "%s (%s)" % (row['name'], row['d_name']),
       'text': "<http://short-edition.com/admin/distributeur/%s/show|%s>" % (row['d_id'], states[row['state']]['label']),
       'icon_emoji': ':dhc:',
+      'channel': '#statuts',
     })
 
 last_id = db.get("SELECT id FROM dispenser_log_status ORDER BY id DESC LIMIT 1")['id']
@@ -48,4 +49,4 @@ while True:
             handle_new_row(row)
         last_id = rows[-1]['id']
     
-    sleep(1)
+    sleep(3)
