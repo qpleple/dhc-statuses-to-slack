@@ -52,7 +52,7 @@ def handle_new_row(row):
     d_name = row['d_name'] if 'd_name' in row else "<d_name>"
     d_id = row['d_name'] if 'd_id' in row else "<d_id>"
     state = states[row['state']]['label'] if 'state' in row and row['state'] in states else "<state>"
-    channel = '#statuts-preprod' if 'mode' in row and mode['row'] == 'preprod' else '#statuts'
+    channel = '#statuts-preprod' if 'mode' in row and row['mode'] == 'preprod' else '#statuts'
 
 
     post_message({
