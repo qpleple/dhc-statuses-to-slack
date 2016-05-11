@@ -65,6 +65,7 @@ def handle_new_row(row):
 last_id = db.get("SELECT id FROM dispenser_log_status ORDER BY id DESC LIMIT 1")['id']
 while True:
     try:
+        print "checking"
         rows = get_new_rows(last_id)
         if rows:
             for row in rows:
