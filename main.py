@@ -40,6 +40,7 @@ def post_message(data):
     requests.post(config.slack['hook_url'], data=json.dumps(data))
 
 def post_error(msg):
+    print "[error] ", msg
     post_message({
       'username': "Erreur",
       'text': msg,
