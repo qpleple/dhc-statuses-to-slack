@@ -45,7 +45,7 @@ def post_error(msg):
       'username': "Erreur",
       'text': msg,
       'icon_emoji': ':dhc:',
-      'channel': '#statuts-preprod' if 'mode' in row and row['mode'] == 'preprod' else '#statuts',
+      'channel': '#statuts',
     })
 
 def handle_new_row(row):
