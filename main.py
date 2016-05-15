@@ -74,7 +74,7 @@ while True:
                 
             last_id = rows[-1]['id']
     except Exception, e:
-        post_error(e.message)
+        post_error(str(e))
         sleep(60)
     
     sleep(3)
