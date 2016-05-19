@@ -58,6 +58,9 @@ def handle_new_row(row, channel='#statuts'):
     if 'mode' in row and row['mode'] == 'preprod':
         channel = '#statuts-preprod'
 
+    if 'state' in row and row['state'] in states and not states[row['state']]['post']:
+        continue
+
     post_message({
       'username': name,
       'icon_emoji': ':dhc:',
