@@ -59,7 +59,7 @@ def handle_new_row(row, channel='#statuts'):
         channel = '#statuts-preprod'
 
     if 'state' in row and row['state'] in states and not states[row['state']]['post']:
-        continue
+        return
 
     post_message({
       'username': name,
