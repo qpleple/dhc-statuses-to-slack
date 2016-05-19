@@ -10,18 +10,18 @@ from time import sleep
 db = Connection(config.mysql['host'], config.mysql['database'], user=config.mysql['user'], password=config.mysql['password'])
 
 states = {
-    '2012': {'label': u":speech_balloon: Initialisation", 'color': ''},
-    '2021': {'label': u":white_check_mark: OK", 'color': 'good'},
-    '2032': {'label': u":zzz: Sleep", 'color': ''},
-    '2042': {'label': u":inbox_tray: Plus de papier", 'color': 'warning'},
-    '2043': {'label': u":japanese_goblin: Bourrage papier", 'color': 'danger'},
-    '2044': {'label': u":printer: Imprimante déconnectée", 'color': 'danger'},
-    '3012': {'label': u":speech_balloon: Initialisation (mode test)", 'color': ''},
-    '3021': {'label': u":white_check_mark: OK (mode test)", 'color': 'good'},
-    '3032': {'label': u":zzz: Sleep (mode test)", 'color': ''},
-    '3042': {'label': u":inbox_tray: Plus de papier (mode test)", 'color': 'warning'},
-    '3043': {'label': u":japanese_goblin: Bourrage papier (mode test)", 'color': 'danger'},
-    '3044': {'label': u":printer: Imprimante déconnectée (mode test)", 'color': 'danger'},
+    '2012': {'label': u":speech_balloon: Initialisation", 'color': '', 'post': False},
+    '2021': {'label': u":white_check_mark: OK", 'color': 'good', 'post': True},
+    '2032': {'label': u":zzz: Sleep", 'color': '', 'post': True},
+    '2042': {'label': u":inbox_tray: Plus de papier", 'color': 'warning', 'post': True},
+    '2043': {'label': u":japanese_goblin: Bourrage papier", 'color': 'danger', 'post': True},
+    '2044': {'label': u":printer: Imprimante déconnectée", 'color': 'danger', 'post': True},
+    '3012': {'label': u":speech_balloon: Initialisation (mode test)", 'color': '', 'post': True},
+    '3021': {'label': u":white_check_mark: OK (mode test)", 'color': 'good', 'post': True},
+    '3032': {'label': u":zzz: Sleep (mode test)", 'color': '', 'post': True},
+    '3042': {'label': u":inbox_tray: Plus de papier (mode test)", 'color': 'warning', 'post': True},
+    '3043': {'label': u":japanese_goblin: Bourrage papier (mode test)", 'color': 'danger', 'post': True},
+    '3044': {'label': u":printer: Imprimante déconnectée (mode test)", 'color': 'danger', 'post': True},
 }
 
 def get_new_rows(last_date):
