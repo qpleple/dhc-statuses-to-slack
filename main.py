@@ -26,12 +26,12 @@ states = {
 
 def get_new_rows(last_date):
     sql = """
-        SELECT s.id, d.id AS d_id, s.created_at, s.state, d.short_name, d.name AS d_name, c.name, d.mode
+        SELECT s.id, d.id AS d_id, s.occured_at, s.state, d.short_name, d.name AS d_name, c.name, d.mode
         FROM dispenser_log_status s
         LEFT JOIN dispensers d ON s.dispenser_id = d.id
         LEFT JOIN dispenser_customers c ON d.customer_id = c.id
-        WHERE s.created_at > %s
-        ORDER BY s.created_at ASC
+        WHERE s.occured_at > %s
+        ORDER BY s.occured_at ASC
     """
 
     return db.query(sql, last_date)
@@ -76,7 +76,7 @@ def handle_new_row(row, channel='#statuts'):
     })
 
 def get_last_date():
-    return db.get("SELECT created_at FROM dispenser_log_status ORDER BY created_at DESC LIMIT 1")['created_at']
+    return db.get("SELECT occured_at FROM dispenser_log_status ORDER BY occured_at DESC LIMIT 1")['occured_at']
 
 def infinite_loop():
     last_date = get_last_date()
@@ -91,7 +91,7 @@ def infinite_loop():
                     except Exception, e:
                         post_error(str(e) + '\n' + str(row))
                     
-                last_date = rows[-1]['created_at']
+                last_date = rows[-1]['occured_at']
         except Exception, e:
             post_error(str(e))
             sleep(60)
