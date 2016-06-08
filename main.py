@@ -55,7 +55,7 @@ def handle_new_row(row, channel='#statuts'):
     state = states[row['state']]['label'] if 'state' in row and row['state'] in states else "<state>"
     color = states[row['state']]['color'] if 'state' in row and row['state'] in states else ""
     
-    if 'mode' in row and row['mode'] == 'preprod':
+    if 'mode' in row and row['mode'] in ['preprod', 'dev']:
         channel = '#statuts-preprod'
 
     if 'state' in row and row['state'] in states and not states[row['state']]['post']:
